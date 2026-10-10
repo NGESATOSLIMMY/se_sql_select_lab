@@ -53,7 +53,8 @@ FROM employees;
 sum_total_price = pd.read_sql("""
 SELECT SUM(ROUND(priceEach * quantityOrdered)) AS total_price
 FROM orderDetails;
-""", conn)
+""", conn)["total_price"][0]
+
 
 # STEP 9
 df_day_month_year = pd.read_sql("""
